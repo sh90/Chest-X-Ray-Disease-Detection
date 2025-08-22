@@ -1,4 +1,4 @@
-What the blocks are
+## What the blocks are
 
 The model’s last conv layer (ResNet-18 layer4) is only 7×7 cells.
 
@@ -7,7 +7,7 @@ Grad-CAM is computed on that 7×7 map and then stretched back to the image → y
 Color = positive evidence for the class you’re explaining (usually the predicted class).
 Red/orange = strong positive contribution, green = weak, blue = none (negative evidence is clipped by ReLU).
 
-How to read one overlay (quick script)
+## How to read one overlay (quick script)
 
 State the labels: “Predicted X, True Y.”
 
@@ -17,7 +17,7 @@ Judge plausibility: “Inside lung fields → plausible. On text corners/diaphra
 
 Key caveat: “This is not a segmentation of disease—just where the network looked to support its decision.”
 
-Why they’re blocky (say this once)
+## Why they’re blocky (say this once)
 
 “ResNet compresses a 224×224 image down to 7×7 features before the classifier.
 Each square summarizes a big patch of the original X-ray (roughly ~32×32 pixels). That’s why it looks chunky.”
@@ -29,11 +29,9 @@ Most confident wrong: “These are the model’s strongest illusions.” Ask: �
 Random: Compare with a few correct cases: “When correct, attention tends to sit within lung fields;
 when wrong, it drifts to borders/labels/devices.”
 
-Talking points students remember
-
 Red ≠ pneumonia mask; it’s evidence for a class.
 
-Attention should be largely inside lungs.
+## Attention should be largely inside lungs.
 
 Hot spots on text markers, edges, or medical devices = spurious correlation.
 
@@ -49,7 +47,7 @@ layer2[-1] → ~28×28 (smoothest, but less semantic)
 
 Or upsample the CAM to input size before overlay (we can toggle this in code if you want).
 
-Common pitfalls to call out
+## Common pitfalls to call out
 
 Outside-lung focus: crop or mask borders; remove text markers.
 
