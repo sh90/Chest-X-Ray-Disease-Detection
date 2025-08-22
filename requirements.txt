@@ -1,0 +1,9 @@
+numpy==1.26.4
+torch==2.2.2
+torchvision==0.17.2
+matplotlib==3.8.4
+scikit-learn==1.4.2
+tqdm==4.66.4
+Pillow==10.3.0
+numpy>=1.26.0
+streamlit==1.48.0
