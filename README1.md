@@ -1,7 +1,7 @@
 
 # Chest X-Ray Disease Detection (Modular, Python 3.12)
 
-Modular teaching project: train a binary classifier (NORMAL vs PNEUMONIA) on chest X-rays, evaluate with ROC/PR, and visualize Grad-CAM heatmaps. Includes Streamlit tools and a step-by-step CLI.
+Modular teaching project: train a binary classifier (NORMAL vs PNEUMONIA) on chest X-rays, evaluate with Precision/Recall, and visualize Grad-CAM heatmaps. Includes Streamlit tools and a step-by-step CLI.
 
 ## Download Dataset
 ```
@@ -20,20 +20,18 @@ cxr_demo_modular/
   training.py
   evaluation.py
   gradcam.py
-  main.py
-  streamlit_app.py
-  scripts/steps_cli.py
+  steps_cli.py
+  streamlit_new.py
 ```
 ## Setup
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install --upgrade pip
+```
 pip install -r requirements.txt
 ```
 
 ## Run (end-to-end)
-```bash
-python main.py --data_dir data/chest_xray --epochs 2 --freeze_epochs 1 --out_dir outputs --save_model
+```
+python steps_cli.py
+streamlit run streamlit_new.py
 ```
 
 ## Streamlit UI
