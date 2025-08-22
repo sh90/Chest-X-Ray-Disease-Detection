@@ -2,7 +2,7 @@
 from openai import OpenAI
 import base64, mimetypes
 
-client = OpenAI()
+client = OpenAI(api_key="")
 
 def encode_image(path):
     mime = mimetypes.guess_type(path)[0] or "image/png"
@@ -33,10 +33,9 @@ def cxr_demo_classify(image_path):
                 {"type": "image_url", "image_url": {"url": img_data_url}}
             ],
         }],
-        temperature=0.2,
+        temperature=0,
         max_tokens=300,
     )
-
     print(resp.choices[0].message.content)  # JSON string
 
-cxr_demo_classify("/path_to_image/person2_bacteria_3.jpeg")
+cxr_demo_classify("/Users/vikasgrover/PycharmProjects/PythonProject11_Xray/chest_xray/train/NORMAL/IM-0119-0001.jpeg")
