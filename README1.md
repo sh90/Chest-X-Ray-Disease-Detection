@@ -1,5 +1,5 @@
 
-# Chest X-Ray Disease Detection (Modular, Python 3.12)
+# Chest X-Ray Disease Detection 
 
 Modular teaching project: train a binary classifier (NORMAL vs PNEUMONIA) on chest X-rays, evaluate with Precision/Recall, and visualize Grad-CAM heatmaps. Includes Streamlit tools and a step-by-step CLI.
 
