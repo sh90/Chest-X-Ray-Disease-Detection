@@ -45,19 +45,24 @@ Modes:
 - Threshold Tuning (optimize F1)
 - Export Grad-CAMs (ZIP)
 
-## CLI (run steps via PyCharm/terminal)
-```bash
-python scripts/steps_cli.py prep --data_dir data/chest_xray
-python scripts/steps_cli.py dataloader --data_dir data/chest_xray --out_dir outputs
-python scripts/steps_cli.py train --data_dir data/chest_xray --epochs 2 --freeze_epochs 1 --out_dir outputs --save_model
-python scripts/steps_cli.py eval --data_dir data/chest_xray --weights outputs/cxr_resnet18.pt --out_dir outputs
-python scripts/steps_cli.py cam --data_dir data/chest_xray --weights outputs/cxr_resnet18.pt --out_dir outputs --num 8
-python scripts/steps_cli.py tune --data_dir data/chest_xray --weights outputs/cxr_resnet18.pt --out_dir outputs
-```
+# About the Project:
+### We will build a small but real-world ML project: 
+A model that flags possible pneumonia on chest X-rays. It’s not a medical device and it doesn’t replace radiologists. Think of it as a triage assistant that can surface the scariest cases first and help us reason about why the model thinks so.”
 
-## Dataset (Kaggle)
-```bash
-mkdir -p data
-kaggle datasets download -d paultimothymooney/chest-xray-pneumonia -p data --unzip
-```
-Point `--data_dir` to `data/chest_xray`.
+“We built a binary classifier (NORMAL vs PNEUMONIA) using transfer learning on ResNet-18.”
+
+“Images are preprocessed to 224×224, normalized like ImageNet, and we use light augmentation (crop/flip/rotate) for generalization.”
+
+“Training happens in two phases:
+
+Freeze the pretrained backbone and train only the classifier head;
+
+Unfreeze and fine-tune the whole network with a smaller learning rate.”
+
+“We evaluate with accuracy, Precision Recall, and we tune the decision threshold for the best F1.”
+
+“For interpretability, we generate Grad-CAM heatmaps to see where the model looked when it made a call.”
+
+“There’s a Streamlit UI with a step-by-step wizard: Data → Preview → Train → Evaluate → Interpret, plus single-image analysis and an error gallery.
+
+
