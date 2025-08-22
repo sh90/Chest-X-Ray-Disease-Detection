@@ -38,3 +38,5 @@ def cxr_demo_classify(image_path):
     )
 
     print(resp.choices[0].message.content)  # JSON string
+
+cxr_demo_classify("/path_to_image/person2_bacteria_3.jpeg")
