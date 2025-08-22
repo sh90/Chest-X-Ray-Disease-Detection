@@ -3,6 +3,11 @@
 
 Modular teaching project: train a binary classifier (NORMAL vs PNEUMONIA) on chest X-rays, evaluate with ROC/PR, and visualize Grad-CAM heatmaps. Includes Streamlit tools and a step-by-step CLI.
 
+## Download Dataset
+```
+https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+```
+
 ## Structure
 ```
 cxr_demo_modular/
